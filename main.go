@@ -1,10 +1,16 @@
-// goluatest project main.go
 package main
 
 import (
 	"fmt"
+	"goluatest/service/test"
 )
 
 func main() {
-	fmt.Println("Hello World!")
+
+	fmt.Print("\n")
+	test.Init()
+	test.AddTestFunc()
+	for {
+
+	}
 }

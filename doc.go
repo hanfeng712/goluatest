@@ -1,6 +1,6 @@
-// goluatest project doc.go
+// golua project doc.go
 
 /*
-goluatest document
+golua document
 */
 package main
