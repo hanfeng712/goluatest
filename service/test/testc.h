@@ -19,5 +19,8 @@ int cAddFuncGo(lua_State *L);
 /******************httpclient********************************/
 int HttpRequestGet(lua_State *L);
 int HttpRequestPost(lua_State *L);
+int luatime(lua_State *L);
+int msectime(lua_State *L);
+int nsectime(lua_State *L);
 // }
 #endif

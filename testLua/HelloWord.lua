@@ -13,7 +13,7 @@ end
 
 function addFuncLua(first)
 	print("2:lua call C == addFuncLua:value:" .. tostring(first))
-
+	print("addFuncLua:luatime:" .. tostring(go.luatime)
 	local result = go.cAddFuncGo(1,2,3)
 	print("over ================== result:" .. tostring(result))
 end

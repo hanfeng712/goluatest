@@ -5,7 +5,7 @@
 /* Start of preamble from import "C" comments.  */
 
 
-#line 3 "/home/hanfeng/golang/src/golua/service/test/testgo.go"
+#line 3 "/home/hanfeng/golang/src/goluatest/service/test/testgo.go"
 
 
 
@@ -62,6 +62,12 @@ extern "C" {
 
 
 extern GoInt AddCallFuncGo(GoInt p0);
+
+extern GoInt64 GetGoSecondTime();
+
+extern GoInt64 GetGoMsecTime();
+
+extern GoInt64 GetGoNsecTime();
 
 #ifdef __cplusplus
 }

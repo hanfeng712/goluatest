@@ -20,7 +20,7 @@ var goluaHandler *GoluaOp
 
 func (op *GoluaOp) Init() {
 	op.luaCtx = C.init_lua()
-	luaPath := "/home/hanfeng/golang/src/golua/testLua/HelloWord.lua"
+	luaPath := "/home/hanfeng/golang/src/goluatest/testLua/HelloWord.lua"
 	cluaPath := C.CString(luaPath)
 	C.load_lua_file(op.luaCtx, cluaPath)
 	C.free(unsafe.Pointer(cluaPath))
@@ -42,7 +42,17 @@ func AddCallFuncGo(a int) int {
 	return a + 1
 }
 
-//export GetGoTime
-func GetGoTime() {
+//export GetGoSecondTime
+func GetGoSecondTime() int64 {
+	return 1
+}
 
+//export GetGoMsecTime
+func GetGoMsecTime() int64 {
+	return 1
+}
+
+//export GetGoNsecTime
+func GetGoNsecTime() int64 {
+	return 1
 }

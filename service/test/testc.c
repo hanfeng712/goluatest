@@ -8,6 +8,10 @@ extern int cAddFuncGo(lua_State *L);
 extern int HttpRequestGet(lua_State *L);
 extern int HttpRequestPost(lua_State *L);
 
+extern int luatime(lua_State *L);
+extern int msectime(lua_State *L);
+extern int nsectime(lua_State *L);
+
 void *init_lua(){
     lua_State *L = luaL_newstate();
     luaL_openlibs(L);
@@ -20,7 +24,16 @@ void *init_lua(){
 			lua_pushcfunction(L, HttpRequestPost);
     			lua_setfield(L, -2, "HttpRequestPost");
 		lua_settable(L, 1);
-		
+		//时间戳
+		lua_pushcfunction(L, luatime);
+		lua_setfield(L, -2, "luatime");
+		lua_pushstring(L,"systime");
+		lua_newtable(L); 
+			lua_pushcfunction(L, msectime);
+    			lua_setfield(L, -2, "Msec");
+			lua_pushcfunction(L, nsectime);
+    			lua_setfield(L, -2, "Nsec");
+		lua_settable(L, 1);
 		//测试函数
 		lua_pushcfunction(L, cAddFuncGo);
     		lua_setfield(L, -2, "cAddFuncGo");
@@ -73,6 +86,26 @@ int cAddFuncGo(lua_State *L)
     result = AddCallFuncGo(oneParam);
 	
     lua_pushnumber(L, result);
+    return 1;
+}
+
+int luatime(lua_State *L)
+{
+	int64 time = GetGoSecondTime();
+	lua_pushnumber(L, time);
+    return 1;
+}
+
+int msectime(lua_State *L)
+{
+	int64 time = GetGoMsecTime();
+	lua_pushnumber(L, time);
+    return 1;
+}
+int nsectime(lua_State *L)
+{
+	int64 time = GetGoNsecTime();
+	lua_pushnumber(L, time);
     return 1;
 }
 /****************httpclient*******************/
