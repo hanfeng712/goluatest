@@ -16,6 +16,8 @@ int load_lua_file(void *p_luaCtx, const char *p_pszFilename);
 void uninit(void *p_luaCtx);
 int cAddFuncLua(void *p_luaCtx,int param);
 int cAddFuncGo(lua_State *L);
-int test();
+/******************httpclient********************************/
+int HttpRequestGet(lua_State *L);
+int HttpRequestPost(lua_State *L);
 // }
 #endif

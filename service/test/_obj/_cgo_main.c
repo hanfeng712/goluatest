@@ -7,4 +7,4 @@ void _cgo_allocate(void *a, int c) { }
 void _cgo_panic(void *a, int c) { }
 void _cgo_reginit(void) { }
 #line 1 "cgo-generated-wrappers"
-int _cgoexp_2f12006a0e33_AddCallFuncGo;
+int _cgoexp_d40c836d3322_AddCallFuncGo;

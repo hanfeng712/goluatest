@@ -11,7 +11,7 @@ extern char* _cgo_topofstack(void);
 #define _cgo_tsan_acquire()
 #define _cgo_tsan_release()
 
-extern void _cgoexp_2f12006a0e33_AddCallFuncGo(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_d40c836d3322_AddCallFuncGo(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 GoInt AddCallFuncGo(GoInt p0)
@@ -23,14 +23,14 @@ GoInt AddCallFuncGo(GoInt p0)
 	} __attribute__((__packed__, __gcc_struct__)) a;
 	a.p0 = p0;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_2f12006a0e33_AddCallFuncGo, &a, 16, _cgo_ctxt);
+	crosscall2(_cgoexp_d40c836d3322_AddCallFuncGo, &a, 16, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 	return a.r0;
 }
 
 CGO_NO_SANITIZE_THREAD
-void _cgo_2f12006a0e33_Cfunc__Cmalloc(void *v) {
+void _cgo_d40c836d3322_Cfunc__Cmalloc(void *v) {
 	struct {
 		unsigned long long p0;
 		void *r1;

@@ -3,7 +3,7 @@ function printmsg()
 end 
 
 function process_request(reqCtx)
-    local uri_path = go.httpclient.get_uri_path(reqCtx)
+    local uri_path = go.get_uri_path(reqCtx)
     print(uri_path)
     local count = go.write(reqCtx, uri_path)
     if count ~= string.len(uri_path) then
@@ -13,6 +13,7 @@ end
 
 function addFuncLua(first)
 	print("2:lua call C == addFuncLua:value:" .. tostring(first))
-	local result = go.httpclient.cAddFuncGo(first)
+
+	local result = go.cAddFuncGo(1,2,3)
 	print("over ================== result:" .. tostring(result))
 end

@@ -32,19 +32,17 @@ func Init() {
 }
 func AddTestFunc() {
 	fmt.Print("start\n")
-	/*
-		var i int = 1
-		for ; i < 10000000000; i++ {
-			fmt.Printf("1:go call C == AddTestFunc\n")
-			C.cAddFuncLua(goluaHandler.luaCtx, C.int(i))
-		}
-	*/
 	fmt.Printf("1:go call C == AddTestFunc\n")
 	C.cAddFuncLua(goluaHandler.luaCtx, 1)
 }
 
 //export AddCallFuncGo
 func AddCallFuncGo(a int) int {
-	fmt.Printf("3:C call go == AddCallFuncGo\n")
+	fmt.Printf("3:C call go == AddCallFuncGo == a : %d\n", a)
 	return a + 1
+}
+
+//export GetGoTime
+func GetGoTime() {
+
 }

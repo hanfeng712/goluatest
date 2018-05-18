@@ -43,24 +43,20 @@ func Init() {
 	goluaHandler.Init()
 }
 func AddTestFunc() {
-	fmt.Print("start\n")
-	var i int = 1
-	for ; i < 100000000; i++ {
-										fmt.Printf("1:go call C == AddTestFunc\n")
-//line /home/hanfeng/golang/src/golua/service/test/testgo.go:37
-		func(_cgo0 _cgo_unsafe.Pointer, _cgo1 _Ctype_int) _Ctype_int {
-//line /home/hanfeng/golang/src/golua/service/test/testgo.go:37
-			_cgoCheckPointer(_cgo0)
-//line /home/hanfeng/golang/src/golua/service/test/testgo.go:37
-			return _Cfunc_cAddFuncLua(_cgo0, _cgo1)
-		}(goluaHandler.luaCtx, _Ctype_int(i))
-	}
-
-//line /home/hanfeng/golang/src/golua/service/test/testgo.go:42
+									fmt.Print("start\n")
+									var i int = 1
+									fmt.Printf("1:go call C == AddTestFunc\n")
+//line /home/hanfeng/golang/src/golua/service/test/testgo.go:36
+	func(_cgo0 _cgo_unsafe.Pointer, _cgo1 _Ctype_int) _Ctype_int {
+//line /home/hanfeng/golang/src/golua/service/test/testgo.go:36
+		_cgoCheckPointer(_cgo0)
+//line /home/hanfeng/golang/src/golua/service/test/testgo.go:36
+		return _Cfunc_cAddFuncLua(_cgo0, _cgo1)
+	}(goluaHandler.luaCtx, 1)
 }
 
-//line /home/hanfeng/golang/src/golua/service/test/testgo.go:45
+//line /home/hanfeng/golang/src/golua/service/test/testgo.go:41
 func AddCallFuncGo(a int) int {
-	fmt.Printf("3:C call go == AddCallFuncGo\n")
+	fmt.Printf("3:C call go == AddCallFuncGo == a : %d\n", a)
 	return a + 1
 }
