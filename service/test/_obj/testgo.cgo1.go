@@ -74,3 +74,8 @@ func GetGoMsecTime() int64 {
 func GetGoNsecTime() int64 {
 	return 1
 }
+
+//line /home/hanfeng/golang/src/goluatest/service/test/testgo.go:61
+func GetConfigIntValueByKey() int {
+	return 1
+}

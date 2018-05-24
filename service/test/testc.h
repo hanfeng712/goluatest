@@ -22,5 +22,7 @@ int HttpRequestPost(lua_State *L);
 int luatime(lua_State *L);
 int msectime(lua_State *L);
 int nsectime(lua_State *L);
+int GetConfigInt(lua_State *L);
+int config(lua_State *L);
 // }
 #endif

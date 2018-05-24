@@ -7,7 +7,8 @@ void _cgo_allocate(void *a, int c) { }
 void _cgo_panic(void *a, int c) { }
 void _cgo_reginit(void) { }
 #line 1 "cgo-generated-wrappers"
-int _cgoexp_06497a5e6fc7_AddCallFuncGo;
-int _cgoexp_06497a5e6fc7_GetGoSecondTime;
-int _cgoexp_06497a5e6fc7_GetGoMsecTime;
-int _cgoexp_06497a5e6fc7_GetGoNsecTime;
+int _cgoexp_7fc2fcb0c328_AddCallFuncGo;
+int _cgoexp_7fc2fcb0c328_GetGoSecondTime;
+int _cgoexp_7fc2fcb0c328_GetGoMsecTime;
+int _cgoexp_7fc2fcb0c328_GetGoNsecTime;
+int _cgoexp_7fc2fcb0c328_GetConfigIntValueByKey;

@@ -13,7 +13,7 @@ end
 
 function addFuncLua(first)
 	print("2:lua call C == addFuncLua:value:" .. tostring(first))
-	print("addFuncLua:luatime:" .. tostring(go.luatime)
+	--print("addFuncLua:configValue:" .. tostring(go.config().GetConfigInt("debug_level")))
 	local result = go.cAddFuncGo(1,2,3)
-	print("over ================== result:" .. tostring(result))
+	print("over ================== result1:" .. tostring(result))
 end

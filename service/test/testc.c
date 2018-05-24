@@ -12,6 +12,9 @@ extern int luatime(lua_State *L);
 extern int msectime(lua_State *L);
 extern int nsectime(lua_State *L);
 
+extern int GetConfigInt(lua_State *L);
+extern int config(lua_State *L);
+
 void *init_lua(){
     lua_State *L = luaL_newstate();
     luaL_openlibs(L);
@@ -34,6 +37,14 @@ void *init_lua(){
 			lua_pushcfunction(L, nsectime);
     			lua_setfield(L, -2, "Nsec");
 		lua_settable(L, 1);
+		//config
+		lua_pushstring(L,"goconfig");
+		lua_newtable(L); 
+			lua_pushcfunction(L, GetConfigInt);
+    			lua_setfield(L, -2, "GetConfigInt");
+		lua_settable(L, 1);
+		lua_pushcfunction(L, config);
+		lua_setfield(L, -2, "config");
 		//测试函数
 		lua_pushcfunction(L, cAddFuncGo);
     		lua_setfield(L, -2, "cAddFuncGo");
@@ -91,22 +102,42 @@ int cAddFuncGo(lua_State *L)
 
 int luatime(lua_State *L)
 {
-	int64 time = GetGoSecondTime();
+	long long time = GetGoSecondTime();
 	lua_pushnumber(L, time);
     return 1;
 }
 
 int msectime(lua_State *L)
 {
-	int64 time = GetGoMsecTime();
+	long long time = GetGoMsecTime();
 	lua_pushnumber(L, time);
     return 1;
 }
 int nsectime(lua_State *L)
 {
-	int64 time = GetGoNsecTime();
+	long long time = GetGoNsecTime();
 	lua_pushnumber(L, time);
     return 1;
+}
+
+/****************config***********************/
+int GetConfigInt(lua_State *L)
+{
+	int param_count = lua_gettop(L);
+	if ( param_count != 1 ){
+        return luaL_error(L, "invalid parameter count!");
+    }
+	const char* keyParam = lua_tostring(L, -1);
+    lua_pop(L, 1);
+	int result = GetConfigIntValueByKey();
+	lua_pushnumber(L, result);
+	return 1;
+}
+
+int config(lua_State *L)
+{
+	lua_pushstring(L, "goconfig");
+	return 1;	
 }
 /****************httpclient*******************/
 //1:id 2:http的Get参数-string,3:结果回调函数-string,4:url地址-string,5:url请求头-table
