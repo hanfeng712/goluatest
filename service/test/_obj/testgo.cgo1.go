@@ -76,6 +76,6 @@ func GetGoNsecTime() int64 {
 }
 
 //line /home/hanfeng/golang/src/goluatest/service/test/testgo.go:61
-func GetConfigIntValueByKey() int {
+func GetConfigIntValueByKey(key string) int {
 	return 1
 }

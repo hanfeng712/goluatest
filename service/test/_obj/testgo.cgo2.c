@@ -39,7 +39,7 @@ extern char* _cgo_topofstack(void);
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_7fc2fcb0c328_Cfunc_cAddFuncLua(void *v)
+_cgo_560a8eaddad8_Cfunc_cAddFuncLua(void *v)
 {
 	struct {
 		void* p0;
@@ -59,7 +59,7 @@ _cgo_7fc2fcb0c328_Cfunc_cAddFuncLua(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_7fc2fcb0c328_Cfunc_free(void *v)
+_cgo_560a8eaddad8_Cfunc_free(void *v)
 {
 	struct {
 		void* p0;
@@ -71,7 +71,7 @@ _cgo_7fc2fcb0c328_Cfunc_free(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_7fc2fcb0c328_Cfunc_init_lua(void *v)
+_cgo_560a8eaddad8_Cfunc_init_lua(void *v)
 {
 	struct {
 		void* r;
@@ -87,7 +87,7 @@ _cgo_7fc2fcb0c328_Cfunc_init_lua(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_7fc2fcb0c328_Cfunc_load_lua_file(void *v)
+_cgo_560a8eaddad8_Cfunc_load_lua_file(void *v)
 {
 	struct {
 		void* p0;

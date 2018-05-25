@@ -58,6 +58,6 @@ func GetGoNsecTime() int64 {
 }
 
 //export GetConfigIntValueByKey
-func GetConfigIntValueByKey() int {
+func GetConfigIntValueByKey(key string) int {
 	return 1
 }

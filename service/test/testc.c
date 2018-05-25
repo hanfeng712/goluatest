@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <error.h>
 #include <stdio.h>
+#include <string.h>
 
 extern int cAddFuncGo(lua_State *L);
 extern int HttpRequestGet(lua_State *L);
@@ -37,14 +38,6 @@ void *init_lua(){
 			lua_pushcfunction(L, nsectime);
     			lua_setfield(L, -2, "Nsec");
 		lua_settable(L, 1);
-		//config
-		lua_pushstring(L,"goconfig");
-		lua_newtable(L); 
-			lua_pushcfunction(L, GetConfigInt);
-    			lua_setfield(L, -2, "GetConfigInt");
-		lua_settable(L, 1);
-		lua_pushcfunction(L, config);
-		lua_setfield(L, -2, "config");
 		//测试函数
 		lua_pushcfunction(L, cAddFuncGo);
     		lua_setfield(L, -2, "cAddFuncGo");
@@ -121,6 +114,19 @@ int nsectime(lua_State *L)
 }
 
 /****************config***********************/
+int config(lua_State *L)
+{
+	lua_pushstring(L,"goconfig");
+		lua_newtable(L); 
+			lua_pushcfunction(L, GetConfigInt);
+    			lua_setfield(L, -2, "GetConfigInt");
+		lua_settable(L, 1);
+		lua_pushcfunction(L, config);
+		lua_setfield(L, -2, "config");
+	lua_settable(L, 1);
+	return 1;	
+}
+
 int GetConfigInt(lua_State *L)
 {
 	int param_count = lua_gettop(L);
@@ -129,15 +135,12 @@ int GetConfigInt(lua_State *L)
     }
 	const char* keyParam = lua_tostring(L, -1);
     lua_pop(L, 1);
-	int result = GetConfigIntValueByKey();
+	GoString keyValue;
+	keyValue.p = keyParam;
+	keyValue.n = strlen(keyParam);
+	int result = GetConfigIntValueByKey(keyValue);
 	lua_pushnumber(L, result);
 	return 1;
-}
-
-int config(lua_State *L)
-{
-	lua_pushstring(L, "goconfig");
-	return 1;	
 }
 /****************httpclient*******************/
 //1:id 2:http的Get参数-string,3:结果回调函数-string,4:url地址-string,5:url请求头-table

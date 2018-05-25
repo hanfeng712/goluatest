@@ -69,7 +69,7 @@ extern GoInt64 GetGoMsecTime();
 
 extern GoInt64 GetGoNsecTime();
 
-extern GoInt GetConfigIntValueByKey();
+extern GoInt GetConfigIntValueByKey(GoString p0);
 
 #ifdef __cplusplus
 }
