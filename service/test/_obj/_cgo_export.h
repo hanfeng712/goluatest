@@ -63,13 +63,21 @@ extern "C" {
 
 extern GoInt AddCallFuncGo(GoInt p0);
 
+/************time******************************/
+
 extern GoInt64 GetGoSecondTime();
 
 extern GoInt64 GetGoMsecTime();
 
 extern GoInt64 GetGoNsecTime();
 
+/*************config****************************/
+
 extern GoInt GetConfigIntValueByKey(GoString p0);
+
+/*************gameZone******************************/
+
+extern GoInt GetGameZoneId();
 
 #ifdef __cplusplus
 }

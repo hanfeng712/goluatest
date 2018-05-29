@@ -7,8 +7,9 @@ void _cgo_allocate(void *a, int c) { }
 void _cgo_panic(void *a, int c) { }
 void _cgo_reginit(void) { }
 #line 1 "cgo-generated-wrappers"
-int _cgoexp_560a8eaddad8_AddCallFuncGo;
-int _cgoexp_560a8eaddad8_GetGoSecondTime;
-int _cgoexp_560a8eaddad8_GetGoMsecTime;
-int _cgoexp_560a8eaddad8_GetGoNsecTime;
-int _cgoexp_560a8eaddad8_GetConfigIntValueByKey;
+int _cgoexp_673ca8978595_AddCallFuncGo;
+int _cgoexp_673ca8978595_GetGoSecondTime;
+int _cgoexp_673ca8978595_GetGoMsecTime;
+int _cgoexp_673ca8978595_GetGoNsecTime;
+int _cgoexp_673ca8978595_GetConfigIntValueByKey;
+int _cgoexp_673ca8978595_GetGameZoneId;

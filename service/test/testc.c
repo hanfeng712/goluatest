@@ -12,9 +12,28 @@ extern int HttpRequestPost(lua_State *L);
 extern int luatime(lua_State *L);
 extern int msectime(lua_State *L);
 extern int nsectime(lua_State *L);
-
+extern int addTimer(lua_State *L);
+extern int addTimerMsec(lua_State *L);
+extern int addClocker(lua_State *L);
+extern int addCalender(lua_State *L);
+extern int stacktrace(lua_State *L);
 extern int GetConfigInt(lua_State *L);
 extern int config(lua_State *L);
+extern int Debug(lua_State *L);
+extern int Info(lua_State *L);
+extern int Warning(lua_State *L);
+extern int Error(lua_State *L);
+extern int BroadcastLuaProtoRawdata(lua_State *L);
+extern int BroadcastString(lua_State *L);
+extern int GetUUid62Hex(lua_State *L);
+extern int RandBytes(lua_State *L);
+extern int RandString(lua_State *L);
+extern int RandString2(lua_State *L);
+extern int ConvertChineseToSpell(lua_State *L);
+extern int ConvertToTraditionalChinese(lua_State *L);
+
+
+
 
 void *init_lua(){
     lua_State *L = luaL_newstate();
@@ -38,6 +57,71 @@ void *init_lua(){
 			lua_pushcfunction(L, nsectime);
     			lua_setfield(L, -2, "Nsec");
 		lua_settable(L, 1);
+		//游戏区
+		lua_pushstring(L,"gamezone");
+		lua_newtable(L);
+			lua_pushstring(L,GetGameZoneId());
+			lua_setfield(L, -2, "Gameid");
+		lua_settable(L, 1);
+		//时区
+		lua_pushstring(L,"timezone");
+		lua_newtable(L);
+			lua_pushstring(L,1);//TODO:hanfeng
+			lua_setfield(L, -2, "Offset");
+		lua_settable(L, 1);
+		//logger
+		lua_pushstring(L,"logging");
+		lua_newtable(L);
+			lua_pushcfunction(L, Debug);
+    			lua_setfield(L, -2, "Debug");
+			lua_pushcfunction(L, Info);
+    			lua_setfield(L, -2, "Info");
+			lua_pushcfunction(L, Warning);
+    			lua_setfield(L, -2, "Warning");
+			lua_pushcfunction(L, Error);
+    			lua_setfield(L, -2, "Error");
+		lua_settable(L, 1);
+		//accountmgr
+		lua_pushstring(L,"accountmgr");
+		lua_newtable(L);
+			lua_pushcfunction(L, BroadcastLuaProtoRawdata);
+    			lua_setfield(L, -2, "BroadcastLuaProtoRawdata");
+			lua_pushcfunction(L, BroadcastString);
+    			lua_setfield(L, -2, "BroadcastString");
+		lua_settable(L, 1);
+		//rand
+		lua_pushstring(L,"rand");
+		lua_newtable(L);
+			lua_pushcfunction(L, GetUUid);
+    			lua_setfield(L, -2, "GetUUid");
+			lua_pushcfunction(L, GetUUid62Hex);
+    			lua_setfield(L, -2, "GetUUid62Hex");
+			lua_pushcfunction(L, RandBytes);
+    			lua_setfield(L, -2, "RandBytes");
+			lua_pushcfunction(L, RandString);
+    			lua_setfield(L, -2, "RandString");
+			lua_pushcfunction(L, RandString2);
+    			lua_setfield(L, -2, "RandString2");
+			lua_pushcfunction(L, ConvertChineseToSpell);
+    			lua_setfield(L, -2, "ConvertChineseToSpell");
+			lua_pushcfunction(L, ConvertToTraditionalChinese);
+    			lua_setfield(L, -2, "ConvertToTraditionalChinese");
+		lua_settable(L, 1);
+		//crypto
+		lua_pushstring(L,"rand");
+		lua_newtable(L);
+		lua_settable(L, 1);
+		
+		lua_pushcfunction(L, addTimer);
+    		lua_setfield(L, -2, "addTimer");
+		lua_pushcfunction(L, addTimerMsec);
+    		lua_setfield(L, -2, "addTimerMsec");		
+		lua_pushcfunction(L, addClocker);
+    		lua_setfield(L, -2, "addClocker");
+		lua_pushcfunction(L, addCalender);
+    		lua_setfield(L, -2, "addCalender");
+		lua_pushcfunction(L, stacktrace);
+    		lua_setfield(L, -2, "stacktrace");
 		//测试函数
 		lua_pushcfunction(L, cAddFuncGo);
     		lua_setfield(L, -2, "cAddFuncGo");
@@ -113,17 +197,35 @@ int nsectime(lua_State *L)
     return 1;
 }
 
+int addTimer(lua_State *L)
+{
+	return 1;
+}
+
+int addTimerMsec(lua_State *L)
+{
+	return 1;
+}
+
+int addClocker(lua_State *L)
+{
+	return 1;
+}
+int addCalender(lua_State *L)
+{
+	return 1;
+}
+int stacktrace(lua_State *L)
+{
+	return 1;
+}
 /****************config***********************/
 int config(lua_State *L)
 {
-	lua_pushstring(L,"goconfig");
-		lua_newtable(L); 
-			lua_pushcfunction(L, GetConfigInt);
-    			lua_setfield(L, -2, "GetConfigInt");
-		lua_settable(L, 1);
-		lua_pushcfunction(L, config);
-		lua_setfield(L, -2, "config");
-	lua_settable(L, 1);
+	lua_newtable(L); 
+		lua_pushstring(L,"GetConfigInt");
+		lua_pushcfunction(L, GetConfigInt);
+		lua_settable(L, -3);
 	return 1;	
 }
 
@@ -140,6 +242,61 @@ int GetConfigInt(lua_State *L)
 	keyValue.n = strlen(keyParam);
 	int result = GetConfigIntValueByKey(keyValue);
 	lua_pushnumber(L, result);
+	return 1;
+}
+
+/****************logger******************************/
+int Debug(lua_State *L)
+{
+	return 1;
+}
+int Info(lua_State *L)
+{
+	return 1;
+}
+int Warning(lua_State *L)
+{
+	return 1;
+}
+
+int Error(lua_State *L)
+{
+	return 1;
+}
+
+/****************accountmgr****************************/
+int BroadcastLuaProtoRawdata(lua_State *L)
+{
+	return 1;
+}
+int BroadcastString(lua_State *L)
+{
+	return 1;
+}
+
+/****************Rand****************************/
+int GetUUid62Hex(lua_State *L);
+{
+	return 1;
+}
+int RandBytes(lua_State *L)
+{
+	return 1;
+}
+int RandString(lua_State *L)
+{
+	return 1;
+}
+int RandString2(lua_State *L)
+{
+	return 1;
+}
+int ConvertChineseToSpell(lua_State *L)
+{
+	return 1;
+}
+int ConvertToTraditionalChinese(lua_State *L)
+{
 	return 1;
 }
 /****************httpclient*******************/

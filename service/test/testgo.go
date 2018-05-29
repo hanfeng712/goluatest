@@ -42,6 +42,7 @@ func AddCallFuncGo(a int) int {
 	return a + 1
 }
 
+/************time******************************/
 //export GetGoSecondTime
 func GetGoSecondTime() int64 {
 	return 1
@@ -57,7 +58,14 @@ func GetGoNsecTime() int64 {
 	return 1
 }
 
+/*************config****************************/
 //export GetConfigIntValueByKey
 func GetConfigIntValueByKey(key string) int {
+	return 1
+}
+
+/*************gameZone******************************/
+//export GetGameZoneId
+func GetGameZoneId() int {
 	return 1
 }

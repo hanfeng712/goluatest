@@ -11,7 +11,7 @@ extern char* _cgo_topofstack(void);
 #define _cgo_tsan_acquire()
 #define _cgo_tsan_release()
 
-extern void _cgoexp_560a8eaddad8_AddCallFuncGo(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_673ca8978595_AddCallFuncGo(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 GoInt AddCallFuncGo(GoInt p0)
@@ -23,12 +23,12 @@ GoInt AddCallFuncGo(GoInt p0)
 	} __attribute__((__packed__, __gcc_struct__)) a;
 	a.p0 = p0;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_560a8eaddad8_AddCallFuncGo, &a, 16, _cgo_ctxt);
+	crosscall2(_cgoexp_673ca8978595_AddCallFuncGo, &a, 16, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 	return a.r0;
 }
-extern void _cgoexp_560a8eaddad8_GetGoSecondTime(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_673ca8978595_GetGoSecondTime(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 GoInt64 GetGoSecondTime()
@@ -38,12 +38,12 @@ GoInt64 GetGoSecondTime()
 		GoInt64 r0;
 	} __attribute__((__packed__, __gcc_struct__)) a;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_560a8eaddad8_GetGoSecondTime, &a, 8, _cgo_ctxt);
+	crosscall2(_cgoexp_673ca8978595_GetGoSecondTime, &a, 8, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 	return a.r0;
 }
-extern void _cgoexp_560a8eaddad8_GetGoMsecTime(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_673ca8978595_GetGoMsecTime(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 GoInt64 GetGoMsecTime()
@@ -53,12 +53,12 @@ GoInt64 GetGoMsecTime()
 		GoInt64 r0;
 	} __attribute__((__packed__, __gcc_struct__)) a;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_560a8eaddad8_GetGoMsecTime, &a, 8, _cgo_ctxt);
+	crosscall2(_cgoexp_673ca8978595_GetGoMsecTime, &a, 8, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 	return a.r0;
 }
-extern void _cgoexp_560a8eaddad8_GetGoNsecTime(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_673ca8978595_GetGoNsecTime(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 GoInt64 GetGoNsecTime()
@@ -68,12 +68,12 @@ GoInt64 GetGoNsecTime()
 		GoInt64 r0;
 	} __attribute__((__packed__, __gcc_struct__)) a;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_560a8eaddad8_GetGoNsecTime, &a, 8, _cgo_ctxt);
+	crosscall2(_cgoexp_673ca8978595_GetGoNsecTime, &a, 8, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 	return a.r0;
 }
-extern void _cgoexp_560a8eaddad8_GetConfigIntValueByKey(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_673ca8978595_GetConfigIntValueByKey(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 GoInt GetConfigIntValueByKey(GoString p0)
@@ -85,14 +85,29 @@ GoInt GetConfigIntValueByKey(GoString p0)
 	} __attribute__((__packed__, __gcc_struct__)) a;
 	a.p0 = p0;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_560a8eaddad8_GetConfigIntValueByKey, &a, 24, _cgo_ctxt);
+	crosscall2(_cgoexp_673ca8978595_GetConfigIntValueByKey, &a, 24, _cgo_ctxt);
+	_cgo_tsan_acquire();
+	_cgo_release_context(_cgo_ctxt);
+	return a.r0;
+}
+extern void _cgoexp_673ca8978595_GetGameZoneId(void *, int, __SIZE_TYPE__);
+
+CGO_NO_SANITIZE_THREAD
+GoInt GetGameZoneId()
+{
+	__SIZE_TYPE__ _cgo_ctxt = _cgo_wait_runtime_init_done();
+	struct {
+		GoInt r0;
+	} __attribute__((__packed__, __gcc_struct__)) a;
+	_cgo_tsan_release();
+	crosscall2(_cgoexp_673ca8978595_GetGameZoneId, &a, 8, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 	return a.r0;
 }
 
 CGO_NO_SANITIZE_THREAD
-void _cgo_560a8eaddad8_Cfunc__Cmalloc(void *v) {
+void _cgo_673ca8978595_Cfunc__Cmalloc(void *v) {
 	struct {
 		unsigned long long p0;
 		void *r1;

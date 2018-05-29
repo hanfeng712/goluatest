@@ -60,22 +60,27 @@ func AddCallFuncGo(a int) int {
 	return a + 1
 }
 
-//line /home/hanfeng/golang/src/goluatest/service/test/testgo.go:46
+//line /home/hanfeng/golang/src/goluatest/service/test/testgo.go:47
 func GetGoSecondTime() int64 {
 	return 1
 }
 
-//line /home/hanfeng/golang/src/goluatest/service/test/testgo.go:51
+//line /home/hanfeng/golang/src/goluatest/service/test/testgo.go:52
 func GetGoMsecTime() int64 {
 	return 1
 }
 
-//line /home/hanfeng/golang/src/goluatest/service/test/testgo.go:56
+//line /home/hanfeng/golang/src/goluatest/service/test/testgo.go:57
 func GetGoNsecTime() int64 {
 	return 1
 }
 
-//line /home/hanfeng/golang/src/goluatest/service/test/testgo.go:61
+//line /home/hanfeng/golang/src/goluatest/service/test/testgo.go:63
 func GetConfigIntValueByKey(key string) int {
+	return 1
+}
+
+//line /home/hanfeng/golang/src/goluatest/service/test/testgo.go:69
+func GetGameZoneId() int {
 	return 1
 }
