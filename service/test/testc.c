@@ -8,6 +8,7 @@
 extern int cAddFuncGo(lua_State *L);
 extern int HttpRequestGet(lua_State *L);
 extern int HttpRequestPost(lua_State *L);
+extern int SendNoResponse(lua_State *L);
 
 extern int luatime(lua_State *L);
 extern int msectime(lua_State *L);
@@ -31,6 +32,10 @@ extern int RandString(lua_State *L);
 extern int RandString2(lua_State *L);
 extern int ConvertChineseToSpell(lua_State *L);
 extern int ConvertToTraditionalChinese(lua_State *L);
+extern int VerifyRsa(lua_State *L);
+extern int HttpCryptoEncode(lua_State *L);
+extern int getserverlist(lua_State *L);
+extern int dogmfunc(lua_State *L);
 
 
 
@@ -46,6 +51,8 @@ void *init_lua(){
     			lua_setfield(L, -2, "HttpRequestGet");
 			lua_pushcfunction(L, HttpRequestPost);
     			lua_setfield(L, -2, "HttpRequestPost");
+			lua_pushcfunction(L, SendNoResponse);
+    			lua_setfield(L, -2, "SendNoResponse");
 		lua_settable(L, 1);
 		//时间戳
 		lua_pushcfunction(L, luatime);
@@ -108,8 +115,12 @@ void *init_lua(){
     			lua_setfield(L, -2, "ConvertToTraditionalChinese");
 		lua_settable(L, 1);
 		//crypto
-		lua_pushstring(L,"rand");
+		lua_pushstring(L,"crypto");
 		lua_newtable(L);
+			lua_pushcfunction(L, VerifyRsa);
+    			lua_setfield(L, -2, "VerifyRsa");
+			lua_pushcfunction(L, HttpCryptoEncode);
+    			lua_setfield(L, -2, "HttpCryptoEncode");
 		lua_settable(L, 1);
 		
 		lua_pushcfunction(L, addTimer);
@@ -122,6 +133,10 @@ void *init_lua(){
     		lua_setfield(L, -2, "addCalender");
 		lua_pushcfunction(L, stacktrace);
     		lua_setfield(L, -2, "stacktrace");
+		lua_pushcfunction(L, getserverlist);
+    		lua_setfield(L, -2, "getserverlist");
+		lua_pushcfunction(L, dogmfunc);
+    		lua_setfield(L, -2, "dogmfunc");
 		//测试函数
 		lua_pushcfunction(L, cAddFuncGo);
     		lua_setfield(L, -2, "cAddFuncGo");
@@ -219,6 +234,14 @@ int stacktrace(lua_State *L)
 {
 	return 1;
 }
+int getserverlist(lua_State *L)
+{
+	return 1;
+}
+int dogmfunc(lua_State *L)
+{
+	return 1;
+}
 /****************config***********************/
 int config(lua_State *L)
 {
@@ -296,6 +319,15 @@ int ConvertChineseToSpell(lua_State *L)
 	return 1;
 }
 int ConvertToTraditionalChinese(lua_State *L)
+{
+	return 1;
+}
+/****************crypto*****************************/
+int VerifyRsa(lua_State *L)
+{
+	return 1;
+}
+int HttpCryptoEncode(lua_State *L)
 {
 	return 1;
 }
@@ -416,6 +448,11 @@ int HttpRequestPost(lua_State *L)
 	lua_pop(L, 1);//
 	
 	//TODO:go实现http的Post代码
+	return 1;
+}
+
+int SendNoResponse(lua_State *L)
+{
 	return 1;
 }
 
